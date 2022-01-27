@@ -4,25 +4,23 @@ public class Cat extends Animal
 {
     private int numLives;
 
-    public int getLives()
-    {
+
+    public int getNumLives() {
         return numLives;
     }
-
-    public String kill()
+    public void setNumLives(int numLives) {
+        this.numLives = numLives;
+    }
+    public void kill()
     {
         if (numLives > 0)
         {
             numLives = numLives - 1;
-            return "Ouch!";
+            System.out.println("Ouch!");
         }
         else if(numLives == 0)
         {
-           return "Dead";
-        }
-        else
-        {
-            return "";
+           System.out.println("Dead");
         }
     }
     public Cat(String name)

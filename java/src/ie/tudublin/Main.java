@@ -9,11 +9,11 @@ public class Main
         Animal misty = new Animal("Misty");
         Animal lucy = new Animal("Lucy");
         Cat ginger = new Cat("Ginger");
-        while(ginger.getLives() > 0)
+        while(ginger.getNumLives() > 0)
         {
-            System.out.println(ginger.kill());
+           ginger.kill();
         }
-        System.out.println(ginger.kill());
+        ginger.kill();
 
         lucy = misty;
         misty.setName("Tara");
