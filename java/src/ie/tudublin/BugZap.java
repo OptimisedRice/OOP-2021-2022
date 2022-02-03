@@ -62,12 +62,29 @@ public class BugZap extends PApplet
 		{
 			playerX += playerSpeed;
 		}
+
+		if (key == ' ')
+		{
+			float halfw = bugwidth / 2;
+			if (playerX > bugX - halfw && playerX < bugX + halfw)
+			{
+				score --;
+				resetBug();
+				line(playerX, playerY - 10, playerX, bugY + halfw);
+			}
+			else
+			{
+				line(playerX, playerY - 10, playerX, 0);
+			}
+		}
 	}
+
+	int score = 0;
 
 	void moveBug()
 	{
-		bugY ++;
-		bugX += random (-20, 20);
+		bugY += 3;
+		bugX += random (-10, 10);
 	}
 	
 	public void draw()
@@ -76,10 +93,8 @@ public class BugZap extends PApplet
 		strokeWeight(2);
 		drawPlayer(playerX, playerY, playerwidth);
 		drawBug(bugX, bugY, bugwidth);
-		if (frameCount % 20 == 0)
-		{
-			moveBug();
-		}
+		moveBug();
+		text("Score:" + score, 50, 50);
 		
 	}
 }
