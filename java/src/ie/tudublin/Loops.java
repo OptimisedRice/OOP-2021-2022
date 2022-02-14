@@ -34,6 +34,10 @@ public class Loops extends PApplet
 		switch(mode)	
 		{
 			case 0:
+				for(int i = 0; i < 10; i++)
+				{
+					rect(i*50, map(i, 0, 10, 0, 500), map(i, 0, 10, 0, 500), i*50);
+				}
 				break;
 			case 1:
 				break;
