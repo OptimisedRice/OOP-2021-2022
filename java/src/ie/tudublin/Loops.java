@@ -55,11 +55,6 @@ public class Loops extends PApplet
 		switch(mode)	
 		{
 			case 0:
-<<<<<<< HEAD
-				for(int i = 0; i < 10; i++)
-				{
-					rect(i*50, map(i, 0, 10, 0, 500), map(i, 0, 10, 0, 500), i*50);
-=======
 				background(0);
 				int bars = (int) (mouseX / 20.0f);
 				float w = width / (float)bars;	
@@ -68,11 +63,20 @@ public class Loops extends PApplet
 					noStroke();
 					fill(map(i, 0, bars, 0, 255), 255, 255);
 					rect(map(i, 0, bars, 0, 500), 0, w, height);
->>>>>>> 6d8a4377fea0f0d7146678cc87e65f91408d07b2
 				}
 				break;
 			case 1:
-			
+				background(0);
+				int bars2 = (int) (mouseX / 20.0f);
+				float w2 = width / (float)bars2;	
+
+				for(int i = 0 ; i < bars2 ; i ++)
+				{
+					noStroke();
+					fill(map(i, 0, bars2, 0, 255), 255, 255);
+					rect(map(i, 0, bars2, 0, 500), map(i, 0, bars2, 0, 500), w2, w2);
+					rect((width - w2) - map(i, 0, bars2, 0, 500), map(i, 0, bars2, 0, 500), w2, w2);
+				}
 				break;
 				//map(a,b,c,d,e);
 				//a = inputvalue
@@ -80,6 +84,7 @@ public class Loops extends PApplet
 				// d, e 0 - start and and of the end range
 
 				// map(-2, 10, 90, 200, 233);
+
 
 		}
 	}
