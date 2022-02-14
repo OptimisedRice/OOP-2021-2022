@@ -85,7 +85,32 @@ public class Loops extends PApplet
 
 				// map(-2, 10, 90, 200, 233);
 
-
+			case 2:
+			{
+				background(0);
+				int circles = (int) (mouseX / 20.0f);
+				float diameter = width / (float)circles;
+				for(int i = 0 ; i < circles; i ++)
+				{
+					noStroke();
+					fill(map(i, 0, circles, 0, 255), 255, 255);
+					ellipse(map(i, 0, circles, 0, 500) + (diameter / 2), 0 + (diameter / 2), diameter, diameter);
+				}
+			}
+			case 3:
+			background(0);
+			int circles = (int) (mouseX / 20.0f);
+			float diameter = width / (float)circles;
+			for(int j = 0 ; j < circles; j ++)
+			{
+				for(int i = 0 ; i < circles; i ++)
+				{
+					noStroke();
+					fill(map(i + j, 0, circles *2, 0, 255), 255, 255);
+					ellipse(map(i, 0, circles, 0, 500) + (diameter / 2),map(j, 0, circles, 0, 500) + (diameter / 2), diameter, diameter);
+					
+				}
+			}	
 		}
 	}
 }
