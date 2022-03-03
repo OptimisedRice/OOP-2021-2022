@@ -23,13 +23,8 @@ public class Main
     }
 
     public static void arrays()
-<<<<<<< HEAD
-    {
-        String[] a = {"MAIN"};
-=======
 	{
 		String[] a = {"MAIN"};
->>>>>>> 403b6fb11112ea2edb4adb0a388a5a52ef91c7ab
         processing.core.PApplet.runSketch( a, new Arrays());
     }
 
