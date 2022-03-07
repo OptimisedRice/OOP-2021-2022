@@ -6,7 +6,7 @@ public class LifeBoard {
     boolean[][] board;
 
     int size;
-    int cellSize;
+    float cellSize;
     PApplet pa;
 
     public LifeBoard(int size, PApplet pa)
@@ -28,9 +28,29 @@ public class LifeBoard {
         }
     }
 
+    public boolean isAlive(int row, int col)
+
     public void render()
     {
-        
+        pa.background(0);
+        for(int row = 0; row < size; row++)
+        {
+            for(int col = 0; col < size; col++)
+            {
+                float x = PApplet.map(col, 0, size, 0, pa.width);
+                float y = PApplet.map(row, 0, size, 0, pa.height);
+                if(board[row][col])
+                {
+                    pa.fill(100,0,0);
+                }
+                else{
+                    pa.noFill();
+                }
+                pa.rect(x,y,cellSize,cellSize);
+            }
+
+            
+        }
     }
 
 }
