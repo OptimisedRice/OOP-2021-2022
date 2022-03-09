@@ -4,6 +4,7 @@ import processing.core.PApplet;
 
 public class LifeBoard {
     boolean[][] board;
+    boolean[][] next;
 
     int size;
     float cellSize;
@@ -12,6 +13,7 @@ public class LifeBoard {
     public LifeBoard(int size, PApplet pa)
     {
         board = new boolean[size][size];
+        next = new boolean[size][size];
         this.size = size;
         this.pa = pa;
         cellSize = pa.width / (float) size;
@@ -23,9 +25,52 @@ public class LifeBoard {
         {
             for(int col = 0; col < size; col++)
             {
-                board[row][col] = pa.random(1.0f) > 0.5f;
+                board[row][col] = pa.random(2.0f) > 0.5f;
             }
         }
+    }
+
+    public void update()
+    {
+        // If cell is alive
+        // 2 -3 - Survives
+        // if a dead cell has 3 neighbours - comes to life
+
+        for(int row = 0 ; row < size ; row ++)
+        {
+            for (int col = 0 ; col < size ; col ++)
+            {
+                int count = countCellsAround(row, col);
+
+                if (isAlive(row, col))
+                {
+                    if (count == 2 || count == 3)
+                    {
+                        next[row][col] = true;
+                    }
+                    else
+                    {
+                        next[row][col] = false;
+                    }
+                }
+                else
+                {
+                    if (count == 3)
+                    {
+                        next[row][col] = true;
+                    }
+                    else
+                    {
+                        next[row][col] = false;
+                    }
+                }
+            }
+        }
+
+        boolean[][] temp;
+        temp = board;
+        board = next;
+        next = temp;
     }
 
     public int countCellsAround(int row, int col)
