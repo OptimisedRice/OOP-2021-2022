@@ -78,11 +78,7 @@ public class Main
     }
     public static void main(String[] args)
     {
-<<<<<<< HEAD
-        audio1();
-=======
         audio2();
->>>>>>> 0e4ccf8c75afbd2fba88b712508569ab5bba12ee
 
         // Tara Misty
         // Tara Tara
